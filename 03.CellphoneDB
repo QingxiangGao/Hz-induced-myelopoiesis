@@ -1,0 +1,14 @@
+## R
+data <- as.matrix(CLP@assays$RNA@data)
+data <- as.data.frame(data)
+meta <- as.data.frame(CLP@meta.data)
+write.table(data,"cellphonedb_immune_count.txt",sep="\t")
+write.table(meta,"cellphonedb.immune.meta.txt".sep="\t")
+## python
+cellphonedb method statistical_analysis  cellphonedb.immune.meta.txt  cellphonedb_immune_count.txt      --counts-data=gene_name
+cellphonedb plot dot_plot 
+cellphonedb plot heatmap_plot cellphonedb.immune.meta.txt
+
+
+##R
+require(circos)
